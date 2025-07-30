@@ -24,24 +24,24 @@ test("Testeo el método processOptions", (t) => {
 
 	t.deepEqual(proceso1, { id: 1, name: "Ana" });
 
-	t.deepEqual(proceso2, [ 
+	t.deepEqual(proceso2, [
 		{ id: 1, name: "Ana" },
 		{ id: 2, name: "Paula" },
 		{ id: 3, name: "Mer" },
 		{ id: 4, name: "Dana" },
 	]);
 
-  const proceso3 = contactController.processOptions({
-    action: "save",
-    params: {id: 5, name: "Santiago"}
-  });
+	const proceso3 = contactController.processOptions({
+		action: "save",
+		params: { id: 5, name: "Santiago" },
+	});
 
-  t.deepEqual(proceso3, { message: "Contacto guardado" });
+	t.deepEqual(proceso3, { message: "Contacto guardado" });
 
-  const proceso4 = contactController.processOptions({
-    action: null,
-    params: {}
-  });
+	const proceso4 = contactController.processOptions({
+		action: null,
+		params: {},
+	});
 
-  t.deepEqual(proceso4, { message: "Acción no reconocida" })
+	t.deepEqual(proceso4, { message: "Acción no reconocida" });
 });
